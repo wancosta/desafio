@@ -3,10 +3,10 @@
 </p>
 
 # Challenge - Kubernetes
-#### Executor: Luiz Mandico (luizmandico@gmail.com)
+#### Executor: Wanderson Costa (wan.costa@gmail.com)
 ---
 
-Este repositório contém a solução para o desafio de Kubernetes, incluindo a aplicação Kotlin, Docker, Kubernetes, Helm Chart e Terraform para deploy no cluster Kubernetes.
+Este repositório contém a solução para o desafio de SRE Interview, incluindo a aplicação Kotlin, Docker, Kubernetes, Helm Chart e Terraform para deploy no cluster Kubernetes.
 
 ---
 
