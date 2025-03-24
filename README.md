@@ -80,27 +80,32 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
 
 1. Prometheus:
    ```bash
-   Para coleta e armazenamento de métricas. Escolhido por sua integração nativa com Kubernetes e sua capacidade de escalar.
+   Para coleta e armazenamento de métricas.
+   Escolhido por sua integração nativa com Kubernetes e sua capacidade de escalar.
    ```
 
 2. Grafana:
    ```bash
-   Para visualização de métricas e criação de dashboards. Escolhido por sua flexibilidade e integração com Prometheus.
+   Para visualização de métricas e criação de dashboards.
+   Escolhido por sua flexibilidade e integração com Prometheus.
    ```
 
 3. ELK Stack (Elasticsearch, Logstash, Kibana):
    ```bash
-   Para coleta, processamento e visualização de logs. Escolhido por sua capacidade de lidar com grandes volumes de dados e sua flexibilidade em consultas.
+   Para coleta, processamento e visualização de logs.
+   Escolhido por sua capacidade de lidar com grandes volumes de dados e sua flexibilidade em consultas.
    ```
 
 4. Jaeger:
    ```bash
-   Para rastreamento distribuído. Escolhido por sua integração com OpenTracing e sua capacidade de fornecer visibilidade detalhada do fluxo de requisições.
+   Para rastreamento distribuído.
+   Escolhido por sua integração com OpenTracing e sua capacidade de fornecer visibilidade detalhada do fluxo de requisições.
    ```
 
 5. Alertmanager:
    ```bash
-   Para gerenciamento de alertas. Escolhido por sua integração com Prometheus e sua capacidade de rotear alertas para diferentes canais.
+   Para gerenciamento de alertas.
+   Escolhido por sua integração com Prometheus e sua capacidade de rotear alertas para diferentes canais.
    ```
 </details>
 
