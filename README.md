@@ -74,38 +74,119 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
    Criação de painéis visuais para monitoramento em tempo real e análise histórica.
    ```
 </details>
+   
 
 <details>
-<summary>1.3 Stack de Observabilidade</summary>
+<summary>1.2 O que deve ser observado em cada componente</summary>
+
+1. CDN:
+   ```bash
+   Métricas de infraestrutura: CPU, memória, uso de disco.
+   Métricas de desempenho: Latência, taxa de transferência, taxa de erros.
+   Logs: Acesso, erros, tráfego.
+   ```
+
+2. Object Storage:
+   ```bash
+   Métricas de infraestrutura: Uso de armazenamento, taxa de transferência.
+   Métricas de desempenho: Latência de leitura/escrita, taxa de erros.
+   Logs: Acesso, erros, operações de leitura/escrita.
+   ```
+   
+3. BFF:
+   ```bash
+   Métricas de infraestrutura: CPU, memória, uso de disco.
+   Métricas de desempenho: Tempo de resposta, taxa de erros, throughput.
+   Logs: Requisições, erros, tempos de resposta.
+   Tracing: Rastreamento de requisições.
+   ```
+
+4. API:
+   ```bash
+   Métricas de infraestrutura: CPU, memória, uso de disco.
+   Métricas de desempenho: Tempo de resposta, taxa de erros, throughput.
+   Logs: Requisições, erros, tempos de resposta.
+   Tracing: Rastreamento de requisições.
+   ```
+   
+5. Cache:
+   ```bash
+   Métricas de infraestrutura: Uso de memória, taxa de hit/miss.
+   Métricas de desempenho: Latência de leitura/escrita, taxa de erros.
+   Logs: Operações de cache, erros.
+   ```
+   
+6. Banco de Dados:
+   ```bash
+   Métricas de infraestrutura: CPU, memória, uso de disco.
+   Métricas de desempenho: Tempo de consulta, taxa de erros, throughput.
+   Logs: Consultas, erros, tempos de execução.
+   ```
+   
+</details>
+              
+   
+<details>
+<summary>1.2 Stack de Observabilidade</summary>
 
 1. Prometheus:
    ```bash
-   Para coleta e armazenamento de métricas.
-   Escolhido por sua integração nativa com Kubernetes e sua capacidade de escalar.
+   Para coleta e armazenamento de métricas. Escolhido por sua integração nativa com Kubernetes e sua capacidade de escalar.
    ```
 
 2. Grafana:
    ```bash
-   Para visualização de métricas e criação de dashboards.
-   Escolhido por sua flexibilidade e integração com Prometheus.
+   Para visualização de métricas e criação de dashboards. Escolhido por sua flexibilidade e integração com Prometheus.
    ```
 
 3. ELK Stack (Elasticsearch, Logstash, Kibana):
    ```bash
-   Para coleta, processamento e visualização de logs.
-   Escolhido por sua capacidade de lidar com grandes volumes de dados e sua flexibilidade em consultas.
+   Para coleta, processamento e visualização de logs. Escolhido por sua capacidade de lidar com grandes volumes de dados e sua flexibilidade em consultas.
    ```
 
 4. Jaeger:
    ```bash
-   Para rastreamento distribuído.
-   Escolhido por sua integração com OpenTracing e sua capacidade de fornecer visibilidade detalhada do fluxo de requisições.
+   Para rastreamento distribuído. Escolhido por sua integração com OpenTracing e sua capacidade de fornecer visibilidade detalhada do fluxo de requisições.
    ```
 
 5. Alertmanager:
    ```bash
-   Para gerenciamento de alertas.
-   Escolhido por sua integração com Prometheus e sua capacidade de rotear alertas para diferentes canais.
+   Para gerenciamento de alertas. Escolhido por sua integração com Prometheus e sua capacidade de rotear alertas para diferentes canais.
+   ```
+
+6. DataDog:
+   ```bash
+   Uma opção paga escolhido por oferecer integração simplificada para monitoramento de toda a stack (infraestrutura, aplicações e logs), além de alertas e visualizações.
+   ```
+
+</details>
+
+### **2. Systems Design**
+<details>
+<summary>2.1 Proposta Arquitetural para Dados Near-Realtime</summary>
+
+0. Para reduzir a defasagem de 3 horas na apresentação dos dados, podemos implementar uma arquitetura baseada em streaming de dados. 
+A proposta é a seguinte:
+
+
+1. Kafka:
+   ```bash
+   Utilizar o Apache Kafka como um barramento de eventos para capturar os dados de downloads em tempo real.
+   ```
+
+2. Stream Processing:
+   ```bash
+   Utilizar o Apache Flink ou Apache Kafka Streams para processar os dados em tempo real, realizando as transformações necessárias (agregação, classificação).
+   ```
+
+3. Banco de Dados em Tempo Real:
+   ```bash
+   Utilizar um banco de dados como o Apache Cassandra ou Amazon DynamoDB para armazenar os dados processados em tempo real.
+   ```
+
+4. API:
+   ```bash
+   Modificar a API para consultar o banco de dados em tempo real ao invés do banco de dados batch.
    ```
 </details>
 
