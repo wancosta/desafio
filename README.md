@@ -14,8 +14,8 @@ Este repositório contém a solução para o desafio de SRE Interview, incluindo
 
 Pré-requisitos necessário para execução do desafio:
 
-[![Grafana](https://payoneer.gallerycdn.vsassets.io/extensions/payoneer/grafana-annotations/1.3.1/1659271747890/Microsoft.VisualStudio.Services.Icons.Default)](https://grafana.com/)
-[![Kind](https://img.shields.io/badge/Kind-3E4EE4?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kind.sigs.k8s.io/)
+[![Grafana](https://img.shields.io/badge/Grafana-D2691E?style=for-the-badge&logo=Grafana&logoColor=white)](https://grafana.com/)
+[![Prometheus](https://img.shields.io/badge/Prometheus-D2691E?style=for-the-badge&logo=Prometheus&logoColor=white)](https://prometheus.io/)
 [![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)](https://helm.sh/)
 [![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
 [![kubectl](https://img.shields.io/badge/Kubectl-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/docs/tasks/tools/)
