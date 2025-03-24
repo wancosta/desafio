@@ -23,24 +23,36 @@ Pré-requisitos necessário para execução do desafio:
 
 ---
 
-## **Estratégias Avaliadas para Execução**
+## **Desafios**
 
-Abaixo, descrevo os itens levados em consideração para uma melhor execução do exercício e detalho o porque de cada decisão:
+* **Observability**
+A solução proposta não conta com nenhuma pratica de Observabilidade implementada, você como SRE recém chegado ao time tem a missão de liderar esta frente.
 
-* **Aplicação:**
-    * Upgrade para uma versão mais recente do Klotin e Java (17), corrigindo vulnerabilidades de segurança.
-    * Inclusão de endpoint para expor as métricas para o Prometheus.
-* **Container:**
-    * Build Docker em multistage para ter uma imagem  mais enxuta.
-    * Adoção de boas práticas no Dockerfile, como o não uso do usuário root. 
-* **Makefile:**
-    * Criacao de um Makefile para dar agilidade e celeridade nos testes para construção e destruição do ambiente.
-* **Helm Chart:**
-    * Criação do Helm Chart com boas práticas de construção de manifestos (readnessProbe, livenessProbe, resource request, resource limit).
-* **Terraform:**
-    * Criação de estrutura enxuta para deploy da aplicação.
-* **Observabilidade:**
-    * Análise da perspectiva da infraestrutura e da perspectiva da aplicação.
+* **Objetivos:**
+
+    * 1) Definir as praticas de observabilidade que devem ser implementadas no cenário proposto.
+    * 2) Definir o que deve ser observado em cada uma das peças que compoem a solução (cdn, object storage, bff, api, cache, banco de dados). (ex: métricas de infraestrutura como cpu, memoria e disco)
+    * 3) Definir a stack de observabilidade que será usada na solução (ferramentas) explicando a escolha por cada peça e como ela iria auxiliar no operacional do time
+
+* **Systems Design**
+A aplicação `Leaderboard` possui uma defasagem de 3 horas na apresentação dos dados. 
+Considerando que existe uma certa complexidade de transformação dos dados durante a execução do `Batch App` realize uma proposta arquitetural para que os dados sejam apresentados  `near-realtime`.
+* **Troubleshooting/RCA**
+Após o Go-Live da funcionalidade `Leaderboard` no `AppMobile` a monitoração detectou aumento no tempo de resposta durante o carregamento do `Leaderboard`.
+
+    * SLO latência: 3 segundos  
+    * SLI latência medido (através de métricas de expostas pela `API`): 7 segundos.
+    * Error budget Burn Rate (1h) :  > 1  
+* **Importante: Não existe contenção de CPU/Memória/Rede e o auto-scaling está configurado adequadamente em todas as camadas (aplicação, cache, banco de dados).**
+Sua missão:  
+    * 1) Remover impacto ASAP
+    * 2) Apresentar um documento de Postmortem
+* **Devops*
+    * 1) Como faria a implantação desta solução proposta de forma automatizada? 
+Detalhar tecnicamente.
+    * 2) O time de produto precisa coletar informações de telemetria relacionadas à experiência do usuário do App para evoluir a usabilidade no futuro. 
+Para isso, será necessário disponibilizar uma nova funcionalidade onde o usuário poderá realizar o opt-in/opt-out de envio destas informações. 
+Como a implantação desta funcionalidade irá requerer atualização nas camadas de BFF e API, sugira uma estratégia de Rollout que não cause impacto aos usuários que estão navegando no App e que leve em consideração cenários de falha de implan
 
 --- 
 
