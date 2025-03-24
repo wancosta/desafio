@@ -19,7 +19,7 @@ Pré-requisitos necessário para execução do desafio:
 [![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-1E90FF?style=for-the-badge&logo=OpenTelemetry&logoColor=white)](https://opentelemetry.io/)
 [![Elasticsearch](https://img.shields.io/badge/Elasticsearch-A9A9A9?style=for-the-badge&logo=Elasticsearch&logoColor=white)](https://www.elastic.co/)
 [![Datadog](https://img.shields.io/badge/Datadog-A020F0?style=for-the-badge&logo=Datadog&logoColor=white)](https://www.datadoghq.com/)
-[![Grafana](https://img.shields.io/badge/Terraform-D2691E?style=for-the-badge&logo=Terraform&logoColor=white)](https://www.terraform.io/)
+[![Grafana](https://img.shields.io/badge/Terraform-483D8B?style=for-the-badge&logo=Terraform&logoColor=white)](https://www.terraform.io/)
 
 ---
 
