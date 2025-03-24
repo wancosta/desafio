@@ -16,8 +16,8 @@ Pré-requisitos necessário para execução do desafio:
 
 [![Grafana](https://img.shields.io/badge/Grafana-D2691E?style=for-the-badge&logo=Grafana&logoColor=white)](https://grafana.com/)
 [![Prometheus](https://img.shields.io/badge/Prometheus-CD853F?style=for-the-badge&logo=Prometheus&logoColor=white)](https://prometheus.io/)
-[![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-F8F8FF?style=for-the-badge&logo=OpenTelemetry&logoColor=white)](https://opentelemetry.io/)
-[![Elasticsearch](https://img.shields.io/badge/Elasticsearch-E6E6FA?style=for-the-badge&logo=Elasticsearch&logoColor=white)](https://www.elastic.co/)
+[![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-1E90FF?style=for-the-badge&logo=OpenTelemetry&logoColor=white)](https://opentelemetry.io/)
+[![Elasticsearch](https://img.shields.io/badge/Elasticsearch-A9A9A9?style=for-the-badge&logo=Elasticsearch&logoColor=white)](https://www.elastic.co/)
 [![Datadog](https://img.shields.io/badge/Datadog-A020F0?style=for-the-badge&logo=Datadog&logoColor=white)](https://www.datadoghq.com/)
 
 ---
