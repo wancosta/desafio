@@ -14,7 +14,7 @@ Este repositório contém a solução para o desafio de SRE Interview, incluindo
 
 Pré-requisitos necessário para execução do desafio:
 
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Grafana]([https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white](https://payoneer.gallerycdn.vsassets.io/extensions/payoneer/grafana-annotations/1.3.1/1659271747890/Microsoft.VisualStudio.Services.Icons.Default))](https://grafana.com/)
 [![Kind](https://img.shields.io/badge/Kind-3E4EE4?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kind.sigs.k8s.io/)
 [![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)](https://helm.sh/)
 [![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
