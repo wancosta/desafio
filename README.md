@@ -2,11 +2,11 @@
 <img src="./img/itau.png" style="width:247px;height:143px;" />
 </p>
 
-# Challenge - Kubernetes
+# Case - SRE
 #### Executor: Wanderson Costa (wan.costa@gmail.com)
 ---
 
-Este repositório contém a solução para o desafio de SRE Interview, incluindo a aplicação Kotlin, Docker, Kubernetes, Helm Chart e Terraform para deploy no cluster Kubernetes.
+Este repositório contém a solução para o desafio de SRE Interview.
 
 ---
 
