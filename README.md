@@ -73,7 +73,7 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
    ```bash
    Criação de painéis visuais para monitoramento em tempo real e análise histórica.
    ```
-
+</details>
 
 <details>
 <summary>1.2 Build da Aplicação Container</summary>
