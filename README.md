@@ -76,16 +76,34 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
 </details>
 
 <details>
-<summary>1.2 Build da Aplicação Container</summary>
+<summary>1.3 Stack de Observabilidade</summary>
 
-1. Compile a aplicação Kotlin utilizando o Gradle com Docker em multistage:
+1. Prometheus:
    ```bash
-   make docker-build
+   Para coleta e armazenamento de métricas. Escolhido por sua integração nativa com Kubernetes e sua capacidade de escalar.
    ```
 
-2. Resultado:
-![Build Docker App](img/make_docker_build.jpg)
+2. Grafana:
+   ```bash
+   Para visualização de métricas e criação de dashboards. Escolhido por sua flexibilidade e integração com Prometheus.
+   ```
+
+3. ELK Stack (Elasticsearch, Logstash, Kibana):
+   ```bash
+   Para coleta, processamento e visualização de logs. Escolhido por sua capacidade de lidar com grandes volumes de dados e sua flexibilidade em consultas.
+   ```
+
+4. Jaeger:
+   ```bash
+   Para rastreamento distribuído. Escolhido por sua integração com OpenTracing e sua capacidade de fornecer visibilidade detalhada do fluxo de requisições.
+   ```
+
+5. Alertmanager:
+   ```bash
+   Para gerenciamento de alertas. Escolhido por sua integração com Prometheus e sua capacidade de rotear alertas para diferentes canais.
+   ```
 </details>
+
 
 <details>
 <summary>1.3 Scan Vulnerabilidades Container</summary>
