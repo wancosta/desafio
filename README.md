@@ -43,20 +43,37 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
 
 --- 
 
-## **Passos para Execução**
+## **Observability**
 
-### **1. Build da Aplicação**
+### **1. Práticas de Observabilidade a serem Implementadas**
 <details>
-<summary>1.1 Build da Aplicação Local</summary>
+<summary>1.1 Para garantir a visibilidade e a capacidade de diagnóstico do sistema, as seguintes práticas de observabilidade devem ser implementadas:</summary>
 
-1. Compile a aplicação Kotlin utilizando o Gradle, localmente:
+1. Logging:
    ```bash
-   make build
+   Coleta e armazenamento de logs estruturados para todas as camadas da aplicação.
    ```
 
-2. Resultado:
-![Build App](img/make_build.jpg)
-</details>
+2. Métricas:
+   ```bash
+   Coleta de métricas de infraestrutura e de aplicação para monitoramento de desempenho e saúde do sistema.
+   ```
+   
+3. Tracing:
+   ```bash
+   Rastreamento distribuído para entender o fluxo das requisições através dos diferentes serviços.
+   ```
+
+4. Alerting:
+   ```bash
+   Configuração de alertas baseados em métricas e logs para detectar anomalias e problemas em tempo real.
+   ```
+
+5. Dashboards:
+   ```bash
+   Criação de painéis visuais para monitoramento em tempo real e análise histórica.
+   ```
+
 
 <details>
 <summary>1.2 Build da Aplicação Container</summary>
