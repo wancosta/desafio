@@ -56,8 +56,6 @@ Como a implantação desta funcionalidade irá requerer atualização nas camada
 
 --- 
 
-## **Observability**
-
 ### **1. Práticas de Observabilidade a serem Implementadas**
 <details>
 <summary>1.1 Para garantir a visibilidade e a capacidade de diagnóstico do sistema, as seguintes práticas de observabilidade devem ser implementadas:</summary>
