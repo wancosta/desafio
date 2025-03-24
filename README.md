@@ -127,7 +127,7 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
               
    
 <details>
-<summary>1.2 Stack de Observabilidade</summary>
+<summary>1.3 Stack de Observabilidade</summary>
 
 1. Prometheus:
    ```bash
@@ -165,7 +165,7 @@ Abaixo, descrevo os itens levados em consideração para uma melhor execução d
 <details>
 <summary>2.1 Proposta Arquitetural para Dados Near-Realtime</summary>
 
-0. Para reduzir a defasagem de 3 horas na apresentação dos dados, podemos implementar uma arquitetura baseada em streaming de dados. 
+Para reduzir a defasagem de 3 horas na apresentação dos dados, podemos implementar uma arquitetura baseada em streaming de dados. 
 A proposta é a seguinte:
 
 
@@ -188,121 +188,90 @@ A proposta é a seguinte:
    ```bash
    Modificar a API para consultar o banco de dados em tempo real ao invés do banco de dados batch.
    ```
+
 </details>
 
-
+### **3. Troubleshooting/RCA**
 <details>
-<summary>1.3 Scan Vulnerabilidades Container</summary>
+<summary>3.1 Remover Impacto ASAP</summary>
 
-1. Scan da Imagem usando trivy:
+1. Identificação do Gargalo:
    ```bash
-   make docker-scan
+   Utilizar o rastreamento distribuído (Jaeger) para identificar onde a latência está ocorrendo.
    ```
 
-2. Resultado:
-![Scan Container](img/make_docker_scan.jpg)
+2. Cache Quente:
+   ```bash
+   Implementar um cache quente para os dados mais acessados, reduzindo a necessidade de consultas ao banco de dados.
+   ```
+
+3. Otimização de Consultas:
+   ```bash
+   Revisar e otimizar as consultas ao banco de dados para reduzir o tempo de resposta.
+   ```
 </details>
 
-### **2. Deploy no Cluster Kubernetes**
+### **4. Documento de Postmortem**
 <details>
-<summary>2.1 Criar Cluster com Kind</summary>
+<summary>4.1 Remover Impacto ASAP</summary>
 
-1. Crie o cluster Kubernetes Local:
-    ```bash
-    make kind-create-cluster
-    ```
-2. Carregue a imagem Docker no Cluster Kind:
-    ```bash
-    make kind-load-image
-    ```
+**Título**: Aumento de Latência no Carregamento do Leaderboard
+**Resumo**: Durante o período de pico de tráfego, foi observado um aumento significativo na latência do carregamento do Leaderboard, excedendo o SLO de 3 segundos.
+**Causa Raiz**: O aumento na latência foi causado por consultas lentas ao banco de dados devido à falta de indexação adequada e ao aumento no volume de dados.
+
+1. Ações Corretivas:
+   ```bash
+   Implementação de índices adequados no banco de dados.
+   Adição de um cache quente para os dados mais acessados.
+   Otimização das consultas ao banco de dados.
+   ```
+
+2. Ações Preventivas:
+   ```bash
+   Revisão periódica das consultas ao banco de dados.
+   Implementação de alertas para monitorar a latência das consultas.
+   Realização de testes de carga regulares.
+   ```
 </details>
 
+### **5. SRE/DEVOPS**
 <details>
-<summary>2.2 Deploy via Helm Chart</summary>
+<summary>5.1 Implantação Automatizada</summary>
 
-1. Instale o Helm Chart no Cluster:
-    ```bash
-    make helm-install
-    ```
-2. Validar a criação dos recursos:
-    ```bash
-    kubectl get all
-    ```
-3. Exposição dos recursos localmente:
-    ```bash
-    make kind-export-app
-    ```   
-4. Acessar e validar a aplicação via browser:
-    ```bash
-    http://localhost:8080/
-    ```
-5. Desinstalar o Helm Chart do Cluster:
-    ```bash
-    make helm-uninstall
-    ```
+1. CI/CD:
+   ```bash
+   Utilizar ferramentas como Jenkins, GitLab CI opara automatizar o pipeline de integração e entrega contínua.
+   ```
+
+2. Infraestrutura como Código
+   ```bash
+   Utilizar Terraform ou CloudFormation para gerenciar a infraestrutura de forma automatizada.
+   ```
+
+3. Orquestração de Containers:
+   ```bash
+   Utilizar Kubernetes para orquestrar a implantação e o scaling dos serviços.
+   ```
+
+<summary>5.2 Estratégia de Rollout</summary>
+
+1. Canary Deployment:
+   ```bash
+   Implementar uma estratégia de Canary Deployment para liberar a nova funcionalidade 
+   gradualmente para um pequeno grupo de usuários antes de liberar para todos.
+   ```
+
+2. Feature Flags:
+   ```bash
+   Utilizar feature flags para habilitar/desabilitar a funcionalidade de opt-in/opt-out sem a necessidade de reimplantação.
+   ```
+
+3. Rollback Automático:
+   ```bash
+   Configurar o pipeline de CI/CD para realizar rollback automático em caso de falha na implantação.
+   ```
 </details>
 
-<details>
-<summary>2.3 Deploy via Terraform</summary>
-
-1. Instale o Helm Chart no Cluster via Terraform:
-    ```bash
-    make terraform-apply
-    ```
-    ![Terraform Apply](img/make_terraform_apply.jpg)
-2. Validar a criação dos recursos:
-    ```bash
-    kubectl get all
-    ```
-    ![kubectl get all](img/make_get_all.jpg)
-    
-3. Exposição dos recursos localmente:
-    ```bash
-    make kind-export-app
-    ```
-    
-4. Acessar e validar a aplicação via browser:
-    ```bash
-    http://localhost:8080/
-    ```
-    ![kubectl get all](img/make_expose_app.jpg)
-    
-5. Desinstalar o Helm Chart no Cluster via Terraform:
-    ```bash
-    make terraform-destroy
-    ```
-</details>
-
-### **3. Observabilidade**
-<details>
-<summary>3.1 Instalação do Prometheus</summary>
-
-1. Instalação do Prometheus:
-    ```bash
-    make prometheus-install
-    ```
-2. Exposição do Prometheus:
-    ```bash
-    make prometheus-access
-    ```
-3. Acesso via browser:
-![Prometheus](img/prometheus.jpg)
-</details>
-
-<details>
-<summary>3.2 Instalação do Grafana</summary>
-
-1. Instalação do Grafana:
-    ```bash
-    make grafana-install
-    ```
-2. Exposição do Grafana:
-    ```bash
-    make grafana-access
-    ```
-3. Acesso via browser:
-![Grafana](img/grafana.jpg)
-</details>
 
 ---
 
