@@ -274,6 +274,30 @@ A proposta é a seguinte:
    ```
 </details>
 
+<details>
+<summary>5.3 Detalhamento Técnico</summary>
+
+1. Canary Deployment:
+   ```bash
+   Liberar a nova funcionalidade para 1% dos usuários.
+   Monitorar métricas de desempenho e erros.
+   Aumentar gradualmente o percentual de usuários até 100%.
+   ```     
+     
+2. Feature Flags
+   ```bash
+   Utilizar uma biblioteca como LaunchDarkly ou Flagsmith para gerenciar feature flags.
+   Habilitar a funcionalidade de opt-in/opt-out via feature flag.   ```
+   ```      
+      
+3. Rollback Automático:
+   ```bash
+   Configurar o pipeline de CI/CD para monitorar métricas de saúde da aplicação.
+   Em caso de falha, reverter automaticamente para a versão estável anterior 
+   ```
+</details>
+Essa abordagem garante uma implantação segura e controlada, minimizando o impacto para os usuários e permitindo uma rápida resposta a eventuais problemas.
+
 
 ---
 
