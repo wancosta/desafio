@@ -252,7 +252,9 @@ A proposta é a seguinte:
    ```bash
    Utilizar Kubernetes para orquestrar a implantação e o scaling dos serviços.
    ```
+</details>
 
+<details>
 <summary>5.2 Estratégia de Rollout</summary>
 
 1. Canary Deployment:
